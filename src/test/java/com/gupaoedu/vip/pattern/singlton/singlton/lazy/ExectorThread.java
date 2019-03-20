@@ -10,6 +10,8 @@
  */
 package com.gupaoedu.vip.pattern.singlton.singlton.lazy;
 
+import com.gupaoedu.vip.pattern.singlton.singlton.threadLocal.ThreadLoacalSingleton;
+
 /**
  * 〈一句话功能简述〉<br> 
  * 〈〉
@@ -22,7 +24,7 @@ public class ExectorThread implements Runnable{
 
     @Override
     public void run() {
-        LazySimpleSingleton singleton = LazySimpleSingleton.getInstance();
+        ThreadLoacalSingleton singleton = ThreadLoacalSingleton.getInstance();
         System.out.println(Thread.currentThread().getName() +":"+singleton);
     }
 }
