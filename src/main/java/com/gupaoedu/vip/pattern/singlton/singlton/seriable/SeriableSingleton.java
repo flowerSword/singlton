@@ -3,7 +3,8 @@ package com.gupaoedu.vip.pattern.singlton.singlton.seriable;
 import java.io.Serializable;
 
 /**
- * Created by Tom.
+ * @author huchu
+ * @date 2019/03/20
  */
 
 //反序列化时导致单例破坏
@@ -25,6 +26,9 @@ public class SeriableSingleton implements Serializable {
         return INSTANCE;
     }
 
+    //重写readResolve方法，只不过是覆盖了反序列化出来的对象
+    //还是创建了两次，发生在jvm层面，相对来说比较安全
+    //之前反序列出来的对象会被GC回收
     private  Object readResolve(){
         return  INSTANCE;
     }
